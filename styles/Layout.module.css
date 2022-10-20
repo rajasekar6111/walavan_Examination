@@ -1,0 +1,29 @@
+.header{
+    background-color:#673ab7;
+    color: white;
+    padding:1px;
+    margin-bottom: 10px;
+    margin-top: -10px;
+    font-size: 20px;
+    width: 100%;
+   
+ }
+   .Link a {
+     color:   white;
+     text-decoration: none;
+   
+    margin-top: -20px;
+ 
+   }
+   .Link a :hover{
+     color:black;
+   }
+   .gap{
+   margin-left: 1200px;
+ 
+   }
+   .gaps{
+     margin-left: 10px;
+     position: absolute;
+     margin-top: 1px;
+   }

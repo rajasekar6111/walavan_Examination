@@ -15,7 +15,7 @@ import {
 const menuItems = [
 
  
-  { id: 1, label: "Employee", icon: UsersIcon, link: "/Employee"},
+  { id: 1, label: "Employees", icon: UsersIcon, link: "/Employees"},
   { id: 2, label: "Students", icon: UsersIcon, link: "/Students"},
 
 

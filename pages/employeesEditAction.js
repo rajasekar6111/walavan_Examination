@@ -8,10 +8,10 @@ import DialogTitle from '@mui/material/DialogTitle';
 import DialogContent from '@mui/material/DialogContent';
 import DialogActions from '@mui/material/DialogActions';
 import CloseIcon from '@mui/icons-material/Close';
-import EditEmployee from "./editEmployee";
 import styles from "../styles/EmployeeList.module.css";
 import Link from "next/link";
 import {Url } from "../constants/Global";
+import EditEmployees from "./editEmployees";
 
 const BootstrapDialog = styled(Dialog)(({ theme }) => ({
   '& .MuiDialogContent-root': {
@@ -49,7 +49,7 @@ BootstrapDialogTitle.propTypes = {
   onClose: PropTypes.func.isRequired,
 };
 
-const employeeEdit = ({data}) => {
+const employeesEdit = ({data}) => {
   console.log("data", data);
   const [open, setOpen] = React.useState(false);
   const handleClickOpen = () => {
@@ -67,9 +67,9 @@ const employeeEdit = ({data}) => {
       kind="Secondary"
       onClick={handleClickOpen}>
         
-          {data.map((empData,index) => (
+          {data.map((employeesData,index) => (
            <div key={index}> 
-        <Link href={`/employee/${empData.emp_id}`}>Update</Link>
+        <Link href={`/employees/${employeesData.id}`}>Update</Link>
         </div>
         ))}
         
@@ -80,7 +80,7 @@ const employeeEdit = ({data}) => {
         open={open}
       >
         <DialogContent>
-           <EditEmployee/>
+           <EditEmployees/>
         </DialogContent>
         
         <DialogActions>
@@ -101,7 +101,7 @@ const employeeEdit = ({data}) => {
   );
 }
 export async function getServerSideProps() {
-  const res = await fetch(Url +"/api/employee");
+  const res = await fetch(Url +"/api/employees");
   const data = await res.json();
   return {
     props: { data },
@@ -109,4 +109,4 @@ export async function getServerSideProps() {
 }
 
 
-export default employeeEdit;
+export default employeesEdit;

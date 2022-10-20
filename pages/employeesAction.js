@@ -8,7 +8,7 @@ import DialogTitle from '@mui/material/DialogTitle';
 import DialogContent from '@mui/material/DialogContent';
 import DialogActions from '@mui/material/DialogActions';
 import CloseIcon from '@mui/icons-material/Close';
-import AddEmployee from './addEmployee';
+import AddEmployees from './addEmployees';
 import styles from "../styles/EmployeeList.module.css";
 
 const BootstrapDialog = styled(Dialog)(({ theme }) => ({
@@ -48,7 +48,7 @@ BootstrapDialogTitle.propTypes = {
 };
 
 
- function employeeAction() {
+ function employeesAction() {
  
   const [open, setOpen] = React.useState(false);
   const handleClickOpen = () => {
@@ -68,7 +68,7 @@ BootstrapDialogTitle.propTypes = {
       className={styles.update}
       kind="Secondary"
       onClick={handleClickOpen}>
-        Add Employee
+        Add Employees
 
       </button>
       <BootstrapDialog
@@ -77,7 +77,7 @@ BootstrapDialogTitle.propTypes = {
         open={open}
       >
         <DialogContent>
-           <AddEmployee/>
+           <AddEmployees/>
         </DialogContent>
         
         <DialogActions>
@@ -99,4 +99,4 @@ BootstrapDialogTitle.propTypes = {
 }
 
 
-export default employeeAction;
+export default employeesAction;

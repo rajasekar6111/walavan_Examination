@@ -1,5 +1,5 @@
 import Layout from '../components/Layout'
-import Studentsaction from "./studentsAction";
+import Employeesaction from "./employeesAction";
 import SortIcon from "@mui/icons-material/ArrowDownward";
 import Checkbox from "@mui/material/Checkbox";
 import React, {useState, useEffect} from 'react';
@@ -12,12 +12,12 @@ import styles from "../styles/EmployeeList.module.css";
 import { useRouter } from "next/router";
 function Home() {
  
-  const deleteStudents = async (id) => {
+  const deleteEmployees = async (id) => {
    
-    let text = "Delete Students List ";
+    let text = "Delete Employees List ";
     if (confirm(text) == true) {
-      let fetchData = await axios.delete(`http://localhost:3000/api/students/${id}`);
-      router.push("/Students");
+      let fetchData = await axios.delete(`http://localhost:3000/api/employees/${id}`);
+      router.push("/Employees");
     } else {
       console.log( "You canceled!")
     }
@@ -27,7 +27,7 @@ function Home() {
 
 const columns = [
   {
-      name: 'Students ID',
+      name: 'Employees ID',
       selector: row => row.id,
       width: '100px',
       sortable: true,
@@ -55,43 +55,37 @@ const columns = [
 {
     name: 'DOB',
     selector: row => row.DOB,
-    width: '150px',
+    width: '200px',
     sortable: true
 },
 {
-    name: 'Student Role ID',
-    selector: row => row.student_role_id,
+    name: 'Emp Role ID',
+    selector: row => row.emp_role_id,
     width: '116px',
     sortable: true
 },
 {
     name: 'Email _ID',
     selector: row => row.email_id,
-    width: '200px',
-    sortable: true
-},
-
-{
-    name: 'Phone No',
-    selector: row => row.phone_no,
-    width: '115px',
+    width: '190px',
     sortable: true
 },
 {
     name: 'Created',
     selector: row => row.created,
-    width: '115px',
+    width: '195px',
     sortable: true
 },
   {
         name: 'Edit',
         button: true,
-        cell: (row) => <div className={styles.update}><Link  href={`/students/${row.id}`}>Update</Link></div>,
+        cell: (row) => <div className={styles.update}><Link  href={`/employees/${row.id}`}>Update</Link></div>,
     },
   {
         name: 'Delete',
+        
         button: true,
-        cell: (row) => <div className={styles.delete} onClick={() => deleteStudents(row.id)}>DELETE</div>,
+        cell: (row) => <div className={styles.delete} onClick={() => deleteEmployees(row.id)}>DELETE</div>,
     },
 
 
@@ -113,14 +107,14 @@ const selectableRowsComponentProps = { indeterminate: isIndeterminate };
   }, [perPage])
 
   const fetchData = async (page,limit) => {
-    fetch(`http://localhost:3000/api/students?page=${page}&limit=${limit}`,{
+    fetch(`http://localhost:3000/api/employees?page=${page}&limit=${limit}`,{
       method:'get',
     })
       .then(res => res.json())
       .then(
         (result) => {
           setIsLoaded(true);
-          setItems(result.studentsData);
+          setItems(result.employeesData);
           setTotalRows(result.totalPages);
         },
         (error) => {
@@ -144,7 +138,7 @@ const selectableRowsComponentProps = { indeterminate: isIndeterminate };
        <div class="rdt_Pagination">
 
 <DataTable
-title="Students"
+title="Employees"
   columns={columns}
   data={items}
   pagination
@@ -164,7 +158,7 @@ title="Students"
 />
 
 </div>
-      <center><Studentsaction/></center>
+      <center><Employeesaction/></center>
       </Grid>
    
     </Layout>

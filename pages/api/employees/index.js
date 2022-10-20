@@ -2,9 +2,9 @@ import nc from "next-connect";
 import onError from "../../../common/errormiddleware";
 import {
   getAllEmployees,
-  saveEmployee,
-} from "../../../controller/employee/employeeAction";
+  saveEmployees,
+} from "../../../controller/employees/employeesAction";
 const handler = nc(onError);
 handler.get(getAllEmployees);
-handler.post(saveEmployee);
+handler.post(saveEmployees);
 export default handler;

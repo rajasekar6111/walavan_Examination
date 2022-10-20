@@ -3,7 +3,7 @@ import onError from "../../../common/errormiddleware";
 import {
   getAllRole,
 
-} from "../../../controller/employee/employeeRole";
+} from "../../../controller/employees/employeeRole";
 const handler = nc(onError);
 handler.get(  getAllRole);
 

@@ -55,7 +55,7 @@ function AddEmployees() {
    
     
    <div className={styles.addform}>
-        <h1 className={styles.h1}>ADD STUDENTS</h1>
+        <h1 className={styles.h1}>ADD EMPLOYEES</h1>
         <form onSubmit={onSubmit}>
           <div>
           <TextField fullWidth

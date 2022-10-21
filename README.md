@@ -1,6 +1,6 @@
-Walavan_Examination
+commands
 
-Install all the packages-npm install
+npm install
 
-run the project-npm run dev
+npm run dev
 

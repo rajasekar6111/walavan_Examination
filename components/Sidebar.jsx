@@ -17,6 +17,8 @@ const menuItems = [
  
   { id: 1, label: "Employees", icon: UsersIcon, link: "/Employees"},
   { id: 2, label: "Students", icon: UsersIcon, link: "/Students"},
+  { id: 3, label: "Questions", icon: UsersIcon, link: "/Questions"},
+  { id: 4, label: "Answers", icon: UsersIcon, link: "/Answers"},
 
 
   

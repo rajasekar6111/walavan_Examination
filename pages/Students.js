@@ -10,7 +10,7 @@ import axios from "axios";
 import styles from "../styles/EmployeeList.module.css";
 
 import { useRouter } from "next/router";
-function Home() {
+function Student() {
  
   const deleteStudents = async (id) => {
    
@@ -174,4 +174,4 @@ title="Students"
 
 
 
-export default Home;
+export default Student;

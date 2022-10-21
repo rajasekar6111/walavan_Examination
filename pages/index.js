@@ -64,7 +64,7 @@ function SignIn() {
         },
       })
       if (data.signIn.user) {
-        await router.push('/Employee')
+        await router.push('/Employees')
       }
     } catch (error) {
       setErrorMsg(getErrorMessage(error))

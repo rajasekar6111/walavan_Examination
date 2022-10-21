@@ -18,7 +18,7 @@ const getRoleById = async (req, res, next) => {
       `select * from employee_role where id=${id}`,
       []
     );
-    if (employeesData.length > 0) res.status(200).json(employeeData);
+    if (employeesData.length > 0) res.status(200).json(employeesData);
     else {
       next(new ErrorHandler(`no employee_role found with this id ${id}`, 404));
     }

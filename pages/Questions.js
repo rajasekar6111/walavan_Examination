@@ -1,5 +1,5 @@
 import Layout from '../components/Layout'
-import Employeesaction from "./employeesAction";
+import Questionsaction from "./questionsAction";
 import SortIcon from "@mui/icons-material/ArrowDownward";
 import Checkbox from "@mui/material/Checkbox";
 import React, {useState, useEffect} from 'react';
@@ -10,14 +10,14 @@ import axios from "axios";
 import styles from "../styles/EmployeeList.module.css";
 
 import { useRouter } from "next/router";
-function Employee() {
+function Question() {
  
-  const deleteEmployees = async (id) => {
+  const deleteQuestions = async (id) => {
    
-    let text = "Delete Employees List ";
+    let text = "Delete Questions List ";
     if (confirm(text) == true) {
-      let fetchData = await axios.delete(`http://localhost:3000/api/employees/${id}`);
-      router.push("/Employees");
+      let fetchData = await axios.delete(`http://localhost:3000/api/questions/${id}`);
+      router.push("/Questions");
     } else {
       console.log( "You canceled!")
     }
@@ -27,7 +27,7 @@ function Employee() {
 
 const columns = [
   {
-      name: 'Employees ID',
+      name: 'Questions ID',
       selector: row => row.id,
       width: '100px',
       sortable: true,
@@ -35,39 +35,27 @@ const columns = [
 
  
   {
-    name: 'First Name',
-    selector: row => row.FirstName,
+    name: 'Name',
+    selector: row => row.name,
+    width: '418px',
+    sortable: true,
+},
+{
+    name: ' Question Type ID',
+    selector: row => row.question_type_id,
     width: '115px',
     sortable: true,
 },
 {
-    name: ' Last Name',
-    selector: row => row.LastName,
-    width: '115px',
-    sortable: true,
-},
-{
-    name: 'UUID',
-    selector: row => row.uuid,
+    name: 'Is Delete',
+    selector: row => row.is_delete,
     width: '200px',
     sortable: true
 },
 {
-    name: 'DOB',
-    selector: row => row.DOB,
+    name: 'Is Active',
+    selector: row => row.is_active,
     width: '200px',
-    sortable: true
-},
-{
-    name: 'Emp Role ID',
-    selector: row => row.emp_role_id,
-    width: '116px',
-    sortable: true
-},
-{
-    name: 'Email _ID',
-    selector: row => row.email_id,
-    width: '190px',
     sortable: true
 },
 {
@@ -79,13 +67,13 @@ const columns = [
   {
         name: 'Edit',
         button: true,
-        cell: (row) => <div className={styles.update}><Link  href={`/employees/${row.id}`}>Update</Link></div>,
+        cell: (row) => <div className={styles.update}><Link  href={`/questions/${row.id}`}>Update</Link></div>,
     },
   {
         name: 'Delete',
         
         button: true,
-        cell: (row) => <div className={styles.delete} onClick={() => deleteEmployees(row.id)}>DELETE</div>,
+        cell: (row) => <div className={styles.delete} onClick={() => deleteQuestions(row.id)}>DELETE</div>,
     },
 
 
@@ -107,14 +95,14 @@ const selectableRowsComponentProps = { indeterminate: isIndeterminate };
   }, [perPage])
 
   const fetchData = async (page,limit) => {
-    fetch(`http://localhost:3000/api/employees?page=${page}&limit=${limit}`,{
+    fetch(`http://localhost:3000/api/questions?page=${page}&limit=${limit}`,{
       method:'get',
     })
       .then(res => res.json())
       .then(
         (result) => {
           setIsLoaded(true);
-          setItems(result.employeesData);
+          setItems(result.questionsData);
           setTotalRows(result.totalPages);
         },
         (error) => {
@@ -138,7 +126,7 @@ const selectableRowsComponentProps = { indeterminate: isIndeterminate };
        <div class="rdt_Pagination">
 
 <DataTable
-title="Employees"
+title="Questions"
   columns={columns}
   data={items}
   pagination
@@ -158,7 +146,7 @@ title="Employees"
 />
 
 </div>
-      <center><Employeesaction/></center>
+      <center><Questionsaction/></center>
       </Grid>
    
     </Layout>
@@ -168,4 +156,4 @@ title="Employees"
 
 
 
-export default Employee;
+export default Question;

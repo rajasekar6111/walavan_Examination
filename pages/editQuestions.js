@@ -5,54 +5,73 @@ import Link from "next/link";
 import styles from "../styles/UpdateEmployee.module.css";
 import Layout from '../components/Layout'
 import { Radio } from '@nextui-org/react';
-import {Url } from "../constants/Global";
 import TextField from '@material-ui/core/TextField';
 
-function EditQuestions({ questionsUpdateData }) {
+function EditQuestions({ questionsUpdateData,answersUpdateData }) {
   console.log("questionsid", questionsUpdateData);
+  console.log("answersid", answersUpdateData);
   const router = useRouter();
   const [types ,setTypes] = useState([]);
-  const [addQuestions, setQuestions] = useState({
+  const [editQuestions, setEditQuestions] = useState({
     name: "",
-    image_url: "",
     question_type_id: "",
     is_delete:"",
     is_active:"",
     created: "",
-    answers: "",  
-
   });
+  const [editAnswers, setEditAnswers] = useState({
+    answers:"",
+   
+  });
+  
   useEffect(() => {
-    setQuestions(questionsUpdateData[0]);
-  }, [questionsUpdateData]);
+    setEditQuestions(questionsUpdateData[0]);
+    setEditAnswers(answersUpdateData[0]);
+  }, [questionsUpdateData][answersUpdateData]);
   const onSubmit = async (e) => {
     e.preventDefault();
     let data = await axios.put(
-        Url +`/api/questions/${questionsUpdateData[0].id}`,
-        addQuestions
-      );
-    if (data.data) router.push("/questions");
-    setQuestions({
+      `http://localhost:3000/api/questions/${questionsUpdateData[0].id}`,
+      editQuestions
+    );
+    e.preventDefault();
+    let data1 = await axios.put(
+      `http://localhost:3000/api/answers/${answersUpdateData[0].id}`,
+      editAnswers
+    );
+    if (data.data) router.push("/Questions");
+    setEditQuestions({
       name: "",
-      image_url: "",
       question_type_id: "",
       is_delete:"",
       is_active:"",
       created: "",
-      answers: "",
-
-    });
+     
+        });
+        if (data1.data) router.push("/Questions");
+        setEditAnswers({
+      answers:"",
+   
+     
+        });
   };
+  
+
 
   const handleChange = (e) => {
     const value = e.target.value;
+  
     console.log("value", value);
-    setQuestions({ ...addQuestions, [e.target.name]: value });
+   
+  
+    setEditQuestions({ ...editQuestions, [e.target.name]: value });
+    setEditAnswers({ ...editAnswers, [e.target.name]: value });
   };
+ 
   useEffect(function(){
     axios
-    .get(Url +"/api/question_role")
-    .then((response) => setRoles(response.data))
+    .get("http://localhost:3000/api/question_type")
+    .then((response) => setTypes(response.data))
    
    },[]);
   return (
@@ -69,16 +88,15 @@ function EditQuestions({ questionsUpdateData }) {
               name="question_type_id"
               placeholder="Question Type ID"
               onChange={handleChange}
-              value={addQuestions.question_type_id}
+              value={editQuestions.question_type_id}
             >
                 {types.map((type) =>(
                 <option value={type.name} key={type.id}>
                     {type.name}
-                    
+                   
                 </option>
             ))}
             </select>
-            <div>
           <TextField fullWidth
          className={styles.TextField}
                 autoComplete="name"
@@ -89,50 +107,26 @@ function EditQuestions({ questionsUpdateData }) {
                 label="Name"
                 autoFocus
                 onChange={handleChange}
-              value={addStudents.name}
+              value={editQuestions.name}
               />
-          </div>
           </div>
           <div>
           <h1 className={styles.h1}>EDIT ANSWERS</h1>
-          <Radio.Group label="Options" defaultValue="A">
-          <Radio value="A"> <input
-           type="text"
-           className={styles.input}
-           name="answers"
-           placeholder="Enter answers"
-           onChange={handleChange}
-           value={addQuestions.answers}
-           /></Radio>
-             <Radio value="B" > <input
-           type="text"
-           className={styles.input}
-           name="answers"
-           placeholder="Enter answers"
-           value={addQuestions.answers}
-           onChange={handleChange}
-           /></Radio>
-      <Radio value="C" > <input
-           type="text"
-           className={styles.input}
-           name="answers"
-           placeholder="Enter answers"
-           value={addQuestions.answers}
-           onChange={handleChange}
-           /></Radio>
-      <Radio value="D" > <input
-           type="text"
-           className={styles.input}
-           name="answers"
-           placeholder="Enter answers"
-           value={addQuestions.answers}
-           onChange={handleChange}
-           /></Radio>
-      
-      
-           </Radio.Group>       
-           </div>
           
+      <TextField fullWidth
+         className={styles.TextField}
+                autoComplete="answers"
+                name="answers"
+                required
+                variant="outlined"
+                type="text"
+                label="Answers"
+                autoFocus
+                onChange={handleChange}
+                value={editAnswers.answers}
+              /> 
+           </div>
+         
           <div>
             <button type="submit" className={styles.button}>
               Submit

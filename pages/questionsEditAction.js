@@ -8,9 +8,9 @@ import DialogTitle from '@mui/material/DialogTitle';
 import DialogContent from '@mui/material/DialogContent';
 import DialogActions from '@mui/material/DialogActions';
 import CloseIcon from '@mui/icons-material/Close';
-import EditEmployee from "./editQuestions";
 import styles from "../styles/EmployeeList.module.css";
 import Link from "next/link";
+import EditQuestions from "./editQuestions";
 
 const BootstrapDialog = styled(Dialog)(({ theme }) => ({
   '& .MuiDialogContent-root': {
@@ -66,9 +66,9 @@ const questionsEdit = ({data}) => {
       kind="Secondary"
       onClick={handleClickOpen}>
         
-          {data.map((usersData,index) => (
+          {data.map((questionsUpdateData,index) => (
            <div key={index}> 
-        <Link href={`/questions/${questionsUpdateData.id}`}>Update</Link>
+        <Link href={`/Questions/${questionsUpdateData.id}`}>Update</Link>
         </div>
         ))}
         
@@ -79,7 +79,7 @@ const questionsEdit = ({data}) => {
         open={open}
       >
         <DialogContent>
-           <EditEmployee/>
+           <EditQuestions/>
         </DialogContent>
         
         <DialogActions>

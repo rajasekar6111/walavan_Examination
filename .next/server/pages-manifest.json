@@ -2,8 +2,8 @@
   "/_app": "pages/_app.js",
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
-  "/api/graphql": "pages/api/graphql.js",
-  "/api/employees": "pages/api/employees.js",
-  "/Students": "pages/Students.js",
-  "/api/students": "pages/api/students.js"
+  "/api/students/[id]": "pages/api/students/[id].js",
+  "/students/[id]": "pages/students/[id].js",
+  "/api/students": "pages/api/students.js",
+  "/api/student_role": "pages/api/student_role.js"
 }

@@ -1,6 +1,7 @@
 .addform {
   margin: 10px auto;
   width: 500px;
+  height: 1000px;
   margin-right: 500px;
   text-align: left;
   background: #faf6f6b9;
@@ -20,7 +21,7 @@
 }
 .addform button {
   background-color: #074e9e;
-  padding: 25px 180px;
+  padding: 20px 150px;
   font-size: 17px;
   margin-top: 17px;
   outline: none;
@@ -49,7 +50,7 @@
 .TextField{
   font-size: 20px;
   text-align: left;
-  padding: 10px 10px !important;
+  padding: 10px 5px !important;
   margin: 100px auto;
   max-width: 377px;
   width: 50%;
@@ -58,7 +59,7 @@
   border-radius: 10%;
 }
 .h1{
-  font-size: 350%;
+  font-size: 150%;
   text-align: left;
   margin: 30px auto;
   color: rgb(14, 99, 173);

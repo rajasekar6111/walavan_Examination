@@ -2,8 +2,12 @@
   "/_app": "pages/_app.js",
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
-  "/api/students/[id]": "pages/api/students/[id].js",
-  "/students/[id]": "pages/students/[id].js",
+  "/api/employeerole": "pages/api/employeerole.js",
+  "/Questions": "pages/Questions.js",
+  "/api/questions": "pages/api/questions.js",
+  "/Students": "pages/Students.js",
   "/api/students": "pages/api/students.js",
+  "/students/[id]": "pages/students/[id].js",
+  "/api/students/[id]": "pages/api/students/[id].js",
   "/api/student_role": "pages/api/student_role.js"
 }

@@ -15,6 +15,16 @@
   ],
   "rootMainFiles": [],
   "pages": {
+    "/Employees": [
+      "static/chunks/webpack.js",
+      "static/chunks/main.js",
+      "static/chunks/pages/Employees.js"
+    ],
+    "/Questions": [
+      "static/chunks/webpack.js",
+      "static/chunks/main.js",
+      "static/chunks/pages/Questions.js"
+    ],
     "/Students": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",

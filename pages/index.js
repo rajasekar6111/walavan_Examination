@@ -1,5 +1,3 @@
-
-
 import { useState } from 'react'
 import { useRouter } from 'next/router'
 import Link from 'next/link'
@@ -101,7 +99,7 @@ function SignIn() {
                 variant="outlined"
                 label="Password"
                 type="password"
-                autoComplete="current-password"
+                autoComplete="password"
               /><br/>
         <button type="submit">Sign in</button> {' '}
         <br/><br/>

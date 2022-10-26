@@ -17,8 +17,8 @@ export const typeDefs = gql`
   }
 
   input SignInInput {
-    email: String
-    password: String
+    email: String!
+    password: String!
   }
 
   type SignUpPayload {

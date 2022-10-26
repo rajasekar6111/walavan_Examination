@@ -1,5 +1,5 @@
 {
-  "name": "Examtination",
+  "name": "walavan_Examination",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -9,7 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@apollo/client": "^3.0.2",
+    "@apollo/client": "^3.7.0",
     "@emotion/react": "^11.10.0",
     "@emotion/styled": "^11.10.0",
     "@hapi/iron": "^6.0.0",
@@ -19,13 +19,14 @@
     "@mui/material": "^5.10.5",
     "@mui/styled-engine": "^5.10.2",
     "@nextui-org/react": "^1.0.0-beta.10",
-    "apollo-server-micro": "^2.14.2",
+    "apollo-server-micro": "^2.26.1",
     "axios": "^0.27.2",
     "classnames": "^2.3.1",
     "container": "0.0.2",
     "cookie": "^0.4.1",
     "deepmerge": "^4.2.2",
-    "graphql": "^14.0.2",
+    "graphql": "^14.7.0",
+    "graphql-tools": "^6.2.5",
     "joi": "^17.6.0",
     "link": "^1.5.1",
     "lint": "^0.7.0",

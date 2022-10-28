@@ -15,7 +15,7 @@ export default function Home() {
       }}
     >
       <div className="content">
-      <b> Examtination </b>   
+      <b > Examtination </b>   
       
       </div>
     </section>

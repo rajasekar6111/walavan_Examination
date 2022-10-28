@@ -8,6 +8,7 @@ import Grid from '@mui/material/Grid';
 import Link from "next/link";
 import axios from "axios";
 import styles from "../styles/EmployeeList.module.css";
+import {Url } from "../constants/Global"
 
 import { useRouter } from "next/router";
 function Employee() {
@@ -16,7 +17,7 @@ function Employee() {
    
     let text = "Delete Employees List ";
     if (confirm(text) == true) {
-      let fetchData = await axios.delete(`http://localhost:3000/api/employees/${id}`);
+      let fetchData = await axios.delete( Url+`/api/employees/${id}`);
       router.push("/Employees");
     } else {
       console.log( "You canceled!")
@@ -107,7 +108,7 @@ const selectableRowsComponentProps = { indeterminate: isIndeterminate };
   }, [perPage])
 
   const fetchData = async (page,limit) => {
-    fetch(`http://localhost:3000/api/employees?page=${page}&limit=${limit}`,{
+    fetch(Url+`/api/employees?page=${page}&limit=${limit}`,{
       method:'get',
     })
       .then(res => res.json())

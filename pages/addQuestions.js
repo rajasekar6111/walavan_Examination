@@ -100,10 +100,10 @@ function AddQuestions() {
                 required
                 variant="outlined"
                 type="text"
-                label="Name"
+                label="Enter the Question"
                 autoFocus
                 onChange={handleChange}
-                value={addQuestions.FirstName}
+                value={addQuestions.name}
               />
             
             <br/>

@@ -6,6 +6,7 @@ import styles from "../styles/UpdateEmployee.module.css";
 import Layout from '../components/Layout'
 import { Radio } from '@nextui-org/react';
 import TextField from '@material-ui/core/TextField';
+import {Url } from "../constants/Global"
 
 function EditQuestions({ questionsUpdateData,answersUpdateData }) {
   console.log("questionsid", questionsUpdateData);
@@ -31,12 +32,12 @@ function EditQuestions({ questionsUpdateData,answersUpdateData }) {
   const onSubmit = async (e) => {
     e.preventDefault();
     let data = await axios.put(
-      `http://localhost:3000/api/questions/${questionsUpdateData[0].id}`,
+      Url+`/api/questions/${questionsUpdateData[0].id}`,
       editQuestions
     );
     e.preventDefault();
     let data1 = await axios.put(
-      `http://localhost:3000/api/answers/${answersUpdateData[0].id}`,
+      Url+`/api/answers/${answersUpdateData[0].id}`,
       editAnswers
     );
     if (data.data) router.push("/Questions");
@@ -70,7 +71,7 @@ function EditQuestions({ questionsUpdateData,answersUpdateData }) {
  
   useEffect(function(){
     axios
-    .get("http://localhost:3000/api/question_type")
+    .get( Url+`/api/question_type`)
     .then((response) => setTypes(response.data))
    
    },[]);

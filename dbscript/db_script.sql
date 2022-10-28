@@ -12,11 +12,12 @@ CREATE TABLE employees (
     LastName varchar(255) NOT NULL,
     FirstName varchar(255),
     uuid varchar(255) NOT NULL,
-    Age int,
+    DOB date,
     emp_role_id int,
     email_id varchar(255) NOT NULL,
-    password varchar(255) NOT NULL,
+    salt varchar(255) ,
     created datetime,
+	hash varchar(255) ,
     PRIMARY KEY (id),
 	FOREIGN KEY (emp_role_id) REFERENCES employee_role(id)
 
@@ -52,7 +53,7 @@ CREATE TABLE  questions(
 
 CREATE TABLE  answers(
     id int NOT NULL AUTO_INCREMENT,
-    name varchar(255) NOT NULL,
+    answers varchar(255) NOT NULL,
     image_url  varchar(255) NOT NULL,
     question_id int,
     iscurrect bit default 0,
@@ -102,8 +103,8 @@ CREATE TABLE students (
     DOB date,
     student_role_id int,
     email_id varchar(255) NOT NULL,
-    salt varchar(255) NOT NULL,
-	hash varchar(255) NOT NULL,
+    salt varchar(255) ,
+	hash varchar(255) ,
     phone_no  varchar(255),
     created datetime,
     PRIMARY KEY (id),
@@ -139,6 +140,11 @@ select 'operator';
 
 insert into student_role(name)
 select 'college' union all
-select 'instite' 
+select 'instite';
+
+insert into question_type(name)
+select 'Open web exam or test' union all
+select 'choice questions' 
+ 
 
 

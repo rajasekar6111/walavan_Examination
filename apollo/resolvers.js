@@ -1,5 +1,5 @@
 import { AuthenticationError, UserInputError } from 'apollo-server-micro'
-import { createStudent, findStudent, validatePassword } from '../lib/students'
+import { createEmployees, findEmployees, validatePassword } from '../lib/employees'
 import { setLoginSession, getLoginSession } from '../lib/auth'
 import { removeTokenCookie } from '../lib/auth-cookies'
 
@@ -10,7 +10,7 @@ export const resolvers = {
         const session = await getLoginSession(context.req)
 
         if (session) {
-          return findStudent({ email: session.email })
+          return findEmployees({ email: session.email })
         }
       } catch (error) {
         throw new AuthenticationError(
@@ -22,11 +22,11 @@ export const resolvers = {
   Mutation: {
     async signUp(_parent, args, _context, _info) {
       console.log( args );
-      const user = await createStudent(args.input)
+      const user = await createEmployees(args.input)
       return { user }
     },
     async signIn(_parent, args, _context, _info) {
-      const user = await findStudent({ email: args.input.email })
+      const user = await findEmployees({ email: args.input.email })
       return { user }
      
 

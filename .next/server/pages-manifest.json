@@ -2,9 +2,9 @@
   "/_app": "pages/_app.js",
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
+  "/api/graphql": "pages/api/graphql.js",
+  "/Employees": "pages/Employees.js",
   "/api/employees": "pages/api/employees.js",
-  "/Students": "pages/Students.js",
-  "/api/students": "pages/api/students.js",
   "/Questions": "pages/Questions.js",
   "/api/questions": "pages/api/questions.js",
   "/api/question_type": "pages/api/question_type.js"

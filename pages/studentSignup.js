@@ -4,12 +4,8 @@ import Link from 'next/link'
 import { gql, useMutation } from '@apollo/client'
 import { getErrorMessage } from '../lib/form'
 import styles from "../styles/UpdateEmployee.module.css";
-import TextField from '@material-ui/core/TextField';
-import CssBaseline from '@material-ui/core/CssBaseline'
-import Paper from '@material-ui/core/Paper';
-import Box from '@material-ui/core/Box';
-import Grid from '@material-ui/core/Grid';
-import { makeStyles } from '@material-ui/core/styles';
+import {TextInput,Pane,Table,Button} from 'evergreen-ui';
+
 
 const SignUpMutation = gql`
   mutation SignUpMutation($fname: String!,$lname: String!,$email: String!, $password: String!, $DOB: String!, $phone_no: String!) {
@@ -21,29 +17,7 @@ const SignUpMutation = gql`
     }
   }
 `
-const useStyles = makeStyles((theme) => ({
-  root: {
-    height: '100vh',
-    
-  },
-  image: {
-     backgroundColor:'blue',
-     
-    backgroundSize: 'cover',
-    backgroundPosition: 'center',
-  },
-  paper: {
-    margin: theme.spacing(8, 25),
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-  },
-  
-}));
-
-
 function SignUp() {
-  const classes = useStyles();
   const [signUp] = useMutation(SignUpMutation)
   const [errorMsg, setErrorMsg] = useState()
   const router = useRouter()
@@ -79,22 +53,17 @@ function SignUp() {
     }
   }
 
-  return (
-    <Box>
-    <Grid container component="main" className={classes.root}>
-      <CssBaseline />
-      <Grid item xs={12} sm={8} md={4} className={classes.image}>
-        <h1 className={styles.h1}>Examtination</h1>
-      </Grid>
-      <Grid item xs={12} sm={4} md={8} component={Paper} elevation={6} square>
-     
-        <div className={classes.paper}>
-         
-    <div className={styles.addform}>
-      <label className={styles.label}>Student Sign Up</label>
+  return ( 
+    <Pane className={styles.addform}>
+      <Pane className={styles.label}>Student Sign Up</Pane>
       <form onSubmit={handleSubmit}>
         {errorMsg && <p>{errorMsg}</p>}
-        <TextField fullWidth
+        <Table.Row>
+          <Table.TextCell>
+            First Name
+          </Table.TextCell>
+          <Table.TextCell>
+          <TextInput 
          className={styles.TextField}
                 autoComplete="fname"
                 name="fname"
@@ -104,7 +73,14 @@ function SignUp() {
                 label="FirstName"
                 autoFocus
               />
-          <TextField fullWidth
+            </Table.TextCell>
+        </Table.Row>
+        <Table.Row>
+          <Table.TextCell>
+             Last Name
+          </Table.TextCell>
+          <Table.TextCell>
+          <TextInput 
          className={styles.TextField}
                 autoComplete="lname"
                 name="lname"
@@ -114,13 +90,15 @@ function SignUp() {
                 label="LastName"
                 autoFocus
               />
-                 <div style={{
-      margin: 'auto',
-      display: 'block',
-      width: '500px'
-    }}>
-          <br/>
-          <TextField fullWidth
+    
+          </Table.TextCell>
+        </Table.Row>
+        <Table.Row>
+          <Table.TextCell>
+          Date of Birth
+          </Table.TextCell>
+          <Table.TextCell>
+          <TextInput fullWidth
          className={styles.TextField}
          autoComplete="DOB"
          label="Date of Birth"
@@ -133,9 +111,14 @@ function SignUp() {
          }}
 
               />
-            </div>
-            <br/>
-         <TextField fullWidth
+          </Table.TextCell>
+        </Table.Row>
+        <Table.Row>
+          <Table.TextCell>
+           Enter the Email
+          </Table.TextCell>
+          <Table.TextCell>
+          <TextInput 
          className={styles.TextField}
                 autoComplete="email"
                 name="email"
@@ -144,8 +127,15 @@ function SignUp() {
                 id="email"
                 label="Email"
                 autoFocus
-              /><br/>
-        <TextField fullWidth
+              />
+            </Table.TextCell>
+        </Table.Row>
+          <Table.Row>
+            <Table.TextCell>
+            Password
+            </Table.TextCell>
+            <Table.TextCell>
+            <TextInput 
          className={styles.TextField}
                 autoComplete="password"
                 name="password"
@@ -154,9 +144,16 @@ function SignUp() {
                 id="password"
                 label="Password"
                 type="password"
-                autoFocus
-              /><br/>
-               <TextField fullWidth
+              
+              />
+              </Table.TextCell>
+          </Table.Row>
+       <Table.Row>
+        <Table.TextCell>
+        Phone Number
+        </Table.TextCell>
+        <Table.TextCell>
+        <TextInput 
          className={styles.TextField}
                 autoComplete="phone_no"
                 name="phone_no"
@@ -165,21 +162,19 @@ function SignUp() {
                 id="phone_no"
                 label="Phone No"
                 autoFocus
-              /><br/>
-        <button type="submit">Sign up</button> 
-        <br/><br/>
+              />
+          </Table.TextCell>
+       </Table.Row>
+        <Button type="submit">Sign up</Button> 
+        
             Already have an account?
        
         <Link  href="/studentSignin"  >
           <a className={styles.a}> Sign in</a>
         </Link>
       </form>
-    </div>
-    </div>
-    </Grid>
-    </Grid>
-    </Box>
+    </Pane>
+ 
   )
 }
-
 export default SignUp

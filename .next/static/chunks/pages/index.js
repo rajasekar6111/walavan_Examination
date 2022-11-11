@@ -8,6 +8,17 @@
  */
 (self["webpackChunk_N_E"] = self["webpackChunk_N_E"] || []).push([["pages/index"],{
 
+/***/ "./node_modules/next/dist/build/polyfills/object-assign.js":
+/*!*****************************************************************!*\
+  !*** ./node_modules/next/dist/build/polyfills/object-assign.js ***!
+  \*****************************************************************/
+/***/ (function(module, __unused_webpack_exports, __webpack_require__) {
+
+"use strict";
+eval(__webpack_require__.ts("\nvar assign = Object.assign.bind(Object);\nmodule.exports = assign;\nmodule.exports[\"default\"] = module.exports;\n\n//# sourceMappingURL=object-assign.js.map//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiLi9ub2RlX21vZHVsZXMvbmV4dC9kaXN0L2J1aWxkL3BvbHlmaWxscy9vYmplY3QtYXNzaWduLmpzLmpzIiwibWFwcGluZ3MiOiJBQUFhO0FBQ2I7QUFDQTtBQUNBLHlCQUFzQjs7QUFFdEIiLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly9fTl9FLy4vbm9kZV9tb2R1bGVzL25leHQvZGlzdC9idWlsZC9wb2x5ZmlsbHMvb2JqZWN0LWFzc2lnbi5qcz9lN2QxIl0sInNvdXJjZXNDb250ZW50IjpbIlwidXNlIHN0cmljdFwiO1xudmFyIGFzc2lnbiA9IE9iamVjdC5hc3NpZ24uYmluZChPYmplY3QpO1xubW9kdWxlLmV4cG9ydHMgPSBhc3NpZ247XG5tb2R1bGUuZXhwb3J0cy5kZWZhdWx0ID0gbW9kdWxlLmV4cG9ydHM7XG5cbi8vIyBzb3VyY2VNYXBwaW5nVVJMPW9iamVjdC1hc3NpZ24uanMubWFwIl0sIm5hbWVzIjpbXSwic291cmNlUm9vdCI6IiJ9\n//# sourceURL=webpack-internal:///./node_modules/next/dist/build/polyfills/object-assign.js\n"));
+
+/***/ }),
+
 /***/ "./node_modules/next/dist/build/webpack/loaders/next-client-pages-loader.js?absolutePagePath=%2Fhome%2Fsathya%2Fworkspace%2Fwalavan_Examination%2Fpages%2Findex.js&page=%2F!":
 /*!***********************************************************************************************************************************************************************************!*\
   !*** ./node_modules/next/dist/build/webpack/loaders/next-client-pages-loader.js?absolutePagePath=%2Fhome%2Fsathya%2Fworkspace%2Fwalavan_Examination%2Fpages%2Findex.js&page=%2F! ***!

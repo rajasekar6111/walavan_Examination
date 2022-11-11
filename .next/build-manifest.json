@@ -20,15 +20,10 @@
       "static/chunks/main.js",
       "static/chunks/pages/index.js"
     ],
-    "/Employees": [
+    "/Students": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
-      "static/chunks/pages/Employees.js"
-    ],
-    "/Questions": [
-      "static/chunks/webpack.js",
-      "static/chunks/main.js",
-      "static/chunks/pages/Questions.js"
+      "static/chunks/pages/Students.js"
     ],
     "/_app": [
       "static/chunks/webpack.js",
@@ -40,10 +35,10 @@
       "static/chunks/main.js",
       "static/chunks/pages/_error.js"
     ],
-    "/employeeSignin": [
+    "/studentSignin": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
-      "static/chunks/pages/employeeSignin.js"
+      "static/chunks/pages/studentSignin.js"
     ]
   },
   "ampFirstPages": []

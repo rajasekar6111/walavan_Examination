@@ -5,12 +5,9 @@ import { gql } from '@apollo/client'
 import { useMutation, useApolloClient } from '@apollo/client'
 import { getErrorMessage } from '../lib/form'
 import styles from "../styles/UpdateEmployee.module.css";
-import TextField from '@material-ui/core/TextField';
-import CssBaseline from '@material-ui/core/CssBaseline'
-import Paper from '@material-ui/core/Paper';
-import Box from '@material-ui/core/Box';
-import Grid from '@material-ui/core/Grid';
-import { makeStyles } from '@material-ui/core/styles';
+import {TextInput,Pane,Table,Button} from 'evergreen-ui';
+
+
 const SignInMutation = gql`
   mutation SignInMutation($email: String!, $password: String!) {
     signIn(input: { email: $email, password: $password }) {
@@ -21,27 +18,9 @@ const SignInMutation = gql`
     }
   }
 `
-const useStyles = makeStyles((theme) => ({
-  root: {
-    height: '100vh',
-   
-  },
-  image: {
-    backgroundImage: 'url(/examtination.webp)',
- 
- 
-    backgroundPosition: 'center',
-  },
-  paper: {
-    margin: theme.spacing(8, 8),
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-  },
- 
-}));
+
 function SignIn() {
-  const classes = useStyles();
+  
   const client = useApolloClient()
   const [signIn] = useMutation(SignInMutation)
   const [errorMsg, setErrorMsg] = useState()
@@ -70,29 +49,30 @@ function SignIn() {
   }
 
   return (
-    <Box>
-    <Grid container component="main" className={classes.root}>
-      <CssBaseline />
-      <Grid item xs={false} sm={4} md={7} className={classes.image} />
-      <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
-        <div className={classes.paper}>
-         
-     
-    <div className={styles.addform}>
-      <label className={styles.label}>Student Sign In</label>
+    <Pane className={styles.addform}>
+      <Pane className={styles.label}>Student Sign In</Pane>
       <form onSubmit={handleSubmit}>
-        {errorMsg && <p>{errorMsg}</p>}
-        <TextField fullWidth
-         className={styles.TextField}
+      {errorMsg && <p>{errorMsg}</p>}
+      <Table.Row>
+        <Table.TextCell>
+         <b>Enter the Email</b> 
+        </Table.TextCell>
+        <Table.TextCell>
+        <TextInput 
                 autoComplete="Email"
                 name="email"
                 required
-                variant="outlined"
                 type="email"
                 label="Email"
-                autoFocus
-              /><br/>
-        <TextField fullWidth
+              />
+        </Table.TextCell>
+      </Table.Row>
+      <Table.Row>
+      <Table.TextCell>
+         <b>Password</b> 
+        </Table.TextCell>
+        <Table.TextCell>
+        <TextInput 
          className={styles.TextField}
                 name="password"
                 required
@@ -100,21 +80,16 @@ function SignIn() {
                 label="Password"
                 type="password"
                 autoComplete="password"
-              /><br/>
-        <button type="submit">Sign in</button> {' '}
-        <br/><br/>
+              />
+        </Table.TextCell>
+      </Table.Row>
+        <Button type="submit">Sign in</Button> {' '}
         Don't have an account yet?
-       
        <Link  href="/studentSignup "  >
          <a className={styles.a}> Register</a>
        </Link>
       </form>
-    </div>
-    </div>
-      </Grid>
-    </Grid>
-    </Box>
-
+    </Pane>
   )
 }
 
